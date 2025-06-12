@@ -1,0 +1,5 @@
+~ start
+dialog_tester_1: [#emotion=angry] Angry dialog.
+dialog_tester_1: [#emotion=sad] Sad dialog.
+dialog_tester_1: [#emotion=happy] Happy dialog.
+=> END

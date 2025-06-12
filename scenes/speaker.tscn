@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://my50qadd5vi1"]
+
+[ext_resource type="Script" uid="uid://banmj8qs082r3" path="res://scripts/speaker.gd" id="1_6jdiy"]
+[ext_resource type="SpriteFrames" uid="uid://b5h0h36qahrnx" path="res://resources/sprite_frames/test_character_emotions.tres" id="2_e1qhi"]
+
+[node name="Speaker" type="Node2D" groups=["speaker"]]
+script = ExtResource("1_6jdiy")
+speaker_id = "dialog_tester_1"
+speaker_name = "Dialog Tester 1"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+scale = Vector2(0.25, 0.25)
+sprite_frames = ExtResource("2_e1qhi")
+animation = &"angry"

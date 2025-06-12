@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://bl6d38kfmkium"]
+
+[ext_resource type="Script" uid="uid://b6o4lb74b62bi" path="res://scripts/main.gd" id="1_0wfyh"]
+[ext_resource type="PackedScene" uid="uid://my50qadd5vi1" path="res://scenes/speaker.tscn" id="1_o5qli"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_0wfyh")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Speaker" parent="." instance=ExtResource("1_o5qli")]
+position = Vector2(-552, 0)

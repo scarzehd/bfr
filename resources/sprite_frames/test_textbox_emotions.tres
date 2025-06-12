@@ -1,0 +1,32 @@
+[gd_resource type="SpriteFrames" load_steps=4 format=3 uid="uid://h83qjcb4whxi"]
+
+[ext_resource type="Texture2D" uid="uid://bs822yy0x1nyl" path="res://assets/sprites/test_UI_happy.png" id="1_acsrm"]
+[ext_resource type="Texture2D" uid="uid://emdpn3iss7bp" path="res://assets/sprites/test_UI_angry.png" id="1_vlyma"]
+[ext_resource type="Texture2D" uid="uid://b8rxl68wp3a2r" path="res://assets/sprites/test_UI_sad.png" id="2_glp1g"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_vlyma")
+}],
+"loop": true,
+"name": &"angry",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_acsrm")
+}],
+"loop": true,
+"name": &"happy",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_glp1g")
+}],
+"loop": true,
+"name": &"sad",
+"speed": 5.0
+}]

@@ -1,0 +1,44 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="bfr"
+run/main_scene="uid://bl6d38kfmkium"
+config/features=PackedStringArray("4.4", "Forward Plus")
+boot_splash/show_image=false
+config/icon="res://icon.svg"
+
+[autoload]
+
+DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
+
+[dialogue_manager]
+
+runtime/balloon_path="uid://ccuwjy60ckbql"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/mode=3
+window/stretch/mode="canvas_items"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg")
+
+[global_group]
+
+speaker=""
+
+[internationalization]
+
+locale/translations_pot_files=PackedStringArray("res://resources/dialog/test.dialogue")
