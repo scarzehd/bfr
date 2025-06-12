@@ -22,8 +22,8 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: Windows
-          path: ./build/windows/bfr-*.exe
+          path: $HOME/build/windows/bfr-*.exe
       - uses: actions/upload-artifact@v4
         with:
           name: Linux
-          path: ./build/linx/bfr-*.x86_64
+          path: $HOME/build/linx/bfr-*.x86_64
