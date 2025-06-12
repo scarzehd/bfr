@@ -1,0 +1,25 @@
+name: build
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - run: wget -O godot.zip https://github.com/godotengine/godot/releases/download/4.4.1-stable/Godot_v4.4.1-stable_linux.x86_64.zip
+      - run: unzip godot.zip
+      - run: git clone https://github.com/scarzehd/bfr.git
+      - run: mkdir build/linux && mkdir build/windows
+      - run: export VERSION=$( cat $PROJECT_PATH/project.godot | grep config/version | sed 's/config\/version="//' | sed 's/"//' )
+      - run: ./Godot_v4.4.1-stable_linux.x86_64 --headless --path ./bfr/ --export-release "Windows" ./build/windows/bfr-${VERSION}.exe
+      - run: ./Godot_v4.4.1-stable_linux.x86_64 --headless --path ./bfr/ --export-release "Linux" ./build/linux/bfr-${VERSION}.x86_64
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Windows
+          path: ./build/windows/bfr-*.exe
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Linux
+          path: ./build/linx/bfr-*.x86_64
