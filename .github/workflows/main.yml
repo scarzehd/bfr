@@ -8,17 +8,19 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - run: wget -O godot.zip https://github.com/godotengine/godot/releases/download/4.4.1-stable/Godot_v4.4.1-stable_linux.x86_64.zip
-      - run: unzip godot.zip
-      - run: mkdir -p $HOME/.local/share/godot/export_templates/4.4.1.stable/
-      - run: wget -O templates.zip https://github.com/godotengine/godot/releases/download/4.4.1-stable/Godot_v4.4.1-stable_export_templates.tpz
-      - run: unzip templates.zip
-      - run: mv templates/* $HOME/.local/share/godot/export_templates/4.4.1.stable/
-      - run: git clone https://github.com/scarzehd/bfr.git
-      - run: mkdir -p $HOME/build/linux && mkdir -p $HOME/build/windows
-      - run: export VERSION=$( cat ./bfr/project.godot | grep config/version | sed 's/config\/version="//' | sed 's/"//' )
-      - run: ./Godot_v4.4.1-stable_linux.x86_64 --headless --path ./bfr/ --export-release "Windows" $HOME/build/windows/bfr-${VERSION}.exe
-      - run: ./Godot_v4.4.1-stable_linux.x86_64 --headless --path ./bfr/ --export-release "Linux" $HOME/build/linux/bfr-${VERSION}.x86_64
+      - shell: bash
+        run: |
+          wget -O godot.zip https://github.com/godotengine/godot/releases/download/4.4.1-stable/Godot_v4.4.1-stable_linux.x86_64.zip
+          unzip godot.zip
+          mkdir -p $HOME/.local/share/godot/export_templates/4.4.1.stable/
+          wget -O templates.zip https://github.com/godotengine/godot/releases/download/4.4.1-stable/Godot_v4.4.1-stable_export_templates.tpz
+          unzip templates.zip
+          mv templates/* $HOME/.local/share/godot/export_templates/4.4.1.stable/
+          git clone https://github.com/scarzehd/bfr.git
+          mkdir -p $HOME/build/linux && mkdir -p $HOME/build/windows
+          export VERSION=$( cat ./bfr/project.godot | grep config/version | sed 's/config\/version="//' | sed 's/"//' )
+          ./Godot_v4.4.1-stable_linux.x86_64 --headless --path ./bfr/ --export-release "Windows" $HOME/build/windows/bfr-${VERSION}.exe
+          ./Godot_v4.4.1-stable_linux.x86_64 --headless --path ./bfr/ --export-release "Linux" $HOME/build/linux/bfr-${VERSION}.x86_64
       - uses: actions/upload-artifact@v4
         with:
           name: Windows
